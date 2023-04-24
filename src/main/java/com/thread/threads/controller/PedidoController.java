@@ -60,4 +60,15 @@ public class PedidoController {
         }
     }*/
 
+    @GetMapping("/test")
+    public String test() throws Exception{
+        Thread.sleep(1000);
+        return "finish";
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pedido> buscaPedido(@PathVariable Long id) {
+        return pedidoRepository.findById(id).map(ResponseEntity::ok).orElseGet(() ->
+                ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+    }
 }
