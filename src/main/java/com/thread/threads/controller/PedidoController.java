@@ -2,7 +2,7 @@ package com.thread.threads.controller;
 
 import com.thread.threads.model.Pedido;
 import com.thread.threads.repository.PedidoRepository;
-import jakarta.persistence.EntityManager;
+import com.thread.threads.service.MyService;
 import jakarta.persistence.OptimisticLockException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class PedidoController {
     private final PedidoRepository pedidoRepository;
 
     @Autowired
-    private final EntityManager entityManager;
+    private final MyService myService;
 
     @PutMapping("/{id}")
     public ResponseEntity<Pedido> atualizarPedido(@PathVariable Long id, @RequestBody Pedido pedido) {
@@ -50,7 +50,7 @@ public class PedidoController {
         Optional<Pedido> pedido = pedidoRepository.findById(id);
         if (pedido.isPresent()) {
             Pedido pedidoExistente = pedido.get();
-            entityManager.lock(pedidoExistente, LockModeType.PESSIMISTIC_WRITE);
+            //entityManager.lock(pedidoExistente, LockModeType.PESSIMISTIC_WRITE);
             pedidoExistente.setDescricao(pedidoAtualizado.getDescricao());
             pedidoExistente.setValor(pedidoAtualizado.getValor());
             pedidoExistente.setDataCriacao(LocalDateTime.now());
@@ -71,5 +71,10 @@ public class PedidoController {
     public ResponseEntity<Pedido> buscaPedido(@PathVariable Long id) {
         return pedidoRepository.findById(id).map(ResponseEntity::ok).orElseGet(() ->
                 ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+    }
+
+    @GetMapping("/service")
+    public void service() {
+        myService.process();
     }
 }
