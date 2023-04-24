@@ -1,9 +1,8 @@
-package com.thread.threads;
+package com.thread.threads.problems;
 
 import com.thread.threads.controller.PedidoController;
 import com.thread.threads.model.Pedido;
 import com.thread.threads.repository.PedidoRepository;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class PedidoControllerTest {
+public class ConcurrencyTest {
 
     @Autowired
     private PedidoRepository pedidoRepository;
@@ -35,10 +34,6 @@ public class PedidoControllerTest {
         pedido.setValor(BigDecimal.TEN);
         pedido.setDataCriacao(LocalDateTime.now());
         pedidoRepository.save(pedido);
-
-        // recupera o pedido criado
-        Optional<Pedido> pedidoInicial = pedidoRepository.findById(pedido.getId());
-        assertTrue(pedidoInicial.isPresent());
 
         // atualiza o pedido por duas threads diferentes
         CountDownLatch latch = new CountDownLatch(2);

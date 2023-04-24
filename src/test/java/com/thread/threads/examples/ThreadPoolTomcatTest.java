@@ -1,4 +1,4 @@
-package com.thread.threads;
+package com.thread.threads.examples;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

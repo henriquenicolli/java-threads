@@ -43,7 +43,8 @@ public class PedidoController {
         }
     }
 
-    /*@Transactional
+    /*@Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Transactional
     @PutMapping("/{id}")
     public ResponseEntity<Pedido> atualizarPedido(Long id, Pedido pedidoAtualizado) {
         Optional<Pedido> pedido = pedidoRepository.findById(id);
@@ -58,8 +59,8 @@ public class PedidoController {
             System.out.println("Conflito de atualizacao");
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
-    }*/
-
+    }
+*/
     @GetMapping("/test")
     public String test() throws Exception{
         Thread.sleep(1000);

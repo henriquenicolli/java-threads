@@ -1,4 +1,4 @@
-package com.thread.threads;
+package com.thread.threads.old;
 
 
 import org.junit.jupiter.api.Test;
