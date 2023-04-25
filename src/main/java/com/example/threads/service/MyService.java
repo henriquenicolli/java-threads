@@ -1,4 +1,4 @@
-package com.thread.threads.service;
+package com.example.threads.service;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

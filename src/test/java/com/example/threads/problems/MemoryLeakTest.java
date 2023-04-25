@@ -1,4 +1,4 @@
-package com.thread.threads.problems;
+package com.example.threads.problems;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;

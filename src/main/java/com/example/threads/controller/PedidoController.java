@@ -1,8 +1,8 @@
-package com.thread.threads.controller;
+package com.example.threads.controller;
 
-import com.thread.threads.model.Pedido;
-import com.thread.threads.repository.PedidoRepository;
-import com.thread.threads.service.MyService;
+import com.example.threads.repository.PedidoRepository;
+import com.example.threads.service.MyService;
+import com.example.threads.model.Pedido;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

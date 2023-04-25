@@ -1,8 +1,8 @@
-package com.thread.threads.problems;
+package com.example.threads.problems;
 
-import com.thread.threads.controller.PedidoController;
-import com.thread.threads.model.Pedido;
-import com.thread.threads.repository.PedidoRepository;
+import com.example.threads.controller.PedidoController;
+import com.example.threads.model.Pedido;
+import com.example.threads.repository.PedidoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

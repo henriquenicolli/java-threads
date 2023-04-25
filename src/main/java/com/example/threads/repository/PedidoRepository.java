@@ -1,6 +1,6 @@
-package com.thread.threads.repository;
+package com.example.threads.repository;
 
-import com.thread.threads.model.Pedido;
+import com.example.threads.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
