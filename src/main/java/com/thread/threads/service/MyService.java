@@ -13,7 +13,7 @@ public class MyService {
 
     @Async
     public void process() {
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             byte[] bytes = new byte[1024 * 1024];
             list.add(bytes);
         }

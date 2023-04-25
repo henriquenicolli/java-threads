@@ -3,13 +3,13 @@ package com.thread.threads.controller;
 import com.thread.threads.model.Pedido;
 import com.thread.threads.repository.PedidoRepository;
 import com.thread.threads.service.MyService;
-import jakarta.persistence.OptimisticLockException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.OptimisticLockException;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -74,7 +74,8 @@ public class PedidoController {
     }
 
     @GetMapping("/service")
-    public void service() {
+    public ResponseEntity<String> service() {
         myService.process();
+        return ResponseEntity.ok("Sucesso");
     }
 }
